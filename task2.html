@@ -1,0 +1,51 @@
+<html>
+  <body>
+  <!--
+  Implement this:
+	https://raw.githubusercontent.com/bystac/fancy-list/master/example.png
+
+	Notes:
+	* Create a client side library to implement selecting of items with checkbox input.
+	* Given a list of pets [cat, dog, fish, ...], draw checkboxes for user to select pets they like.
+	* Add 'Toggle All' checkbox at the top of the items list.
+		* 'Toggle All' can be in one of the three states: none, all, partial.
+	* Use image instead of regular checkbox element
+		* <img src="https://raw.githubusercontent.com/bystac/fancy-list/master/checkbox.png" width="16"/>
+		* represet Checked/UnChecked with the same image.
+			* use css only to gray-out the image for unchecked state
+	-->
+
+    <div id="fancyList"></div>
+    <script src="jquery.js"></script>
+    <script src="jquery.fancyList.js"></script>
+    <script>
+
+    var selectedCallback = function(selected) {
+      console.log(selected);
+    };
+
+    $('#fancyList').fancyList(['cat', 'dog', 'fish'], {checkAll: true}, selectedCallback);
+
+    </script>
+    <style type="text/css">
+      .fancyListItem img {
+        filter: url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'><filter%20id='grayscale'><feColorMatrix%20type='matrix'%20values='0.3333%200.3333%200.3333%200%200%200.3333%200.3333%200.3333%200%200%200.3333%200.3333%200.3333%200%200%200%200%200%201%200'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+        filter: grayscale(100%); /* Current draft standard */
+        -webkit-filter: grayscale(100%); /* New WebKit */
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: gray; /* IE6+ */
+      }
+
+      .fancyListItem.checked img {
+        -webkit-filter: grayscale(0);
+        -moz-filter: grayscale(0);
+        -ms-filter: grayscale(0);
+        -o-filter: grayscale(0);
+        filter: none;
+      }
+
+    </style>
+  </body>
+</html>

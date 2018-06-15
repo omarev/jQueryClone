@@ -1,0 +1,25 @@
+<!--
+	OMG!
+	All the jquery code base disappeared, git, CDN caches, WayBackMachine.
+	No one know where the code or John Resig are.
+
+	Sadly you still need to support your bosses site, as your cat's college fee is due soon!
+
+	Mission: Polyfill jquery object, and make the code work again as expacted without changing it.
+
+	<script src="https://code.dead-domain.com/jquery-1.12.4.js"></script>
+-->
+
+<a class="lnk" href="#1">Link 1</a>
+<a class="lnk" href="#2">Link 2</a>
+
+<script src="jquery.js"></script>
+<script>
+    $('.lnk').click(function () {
+        alert(this.href);
+    });
+
+    var elems = $('.lnk');
+    console.log(elems[0].className);
+    elems.toggleClass('Blue');
+</script>
